@@ -1,0 +1,428 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>MeetMinder - Your Meeting Analysis</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            background-color: #f7f7f7;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--        }-->
+
+<!--        header {-->
+<!--            background-color: #3498db;-->
+<!--            color: #fff;-->
+<!--            text-align: center;-->
+<!--            padding: 20px 0;-->
+<!--        }-->
+
+<!--        header h1 {-->
+<!--            font-size: 36px;-->
+<!--        }-->
+
+<!--        header p {-->
+<!--            font-size: 18px;-->
+<!--        }-->
+
+<!--        main {-->
+<!--            text-align: center;-->
+<!--            padding: 20px;-->
+<!--        }-->
+
+<!--        .upload-section {-->
+<!--            background-color: #fff;-->
+<!--            border-radius: 8px;-->
+<!--            padding: 20px;-->
+<!--            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);-->
+<!--        }-->
+
+<!--        .upload-section h2 {-->
+<!--            font-size: 24px;-->
+<!--        }-->
+
+<!--        form {-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            align-items: center;-->
+<!--        }-->
+
+<!--        .input-container {-->
+<!--            display: flex;-->
+<!--            justify-content: space-between;-->
+<!--            align-items: center;-->
+<!--            margin: 10px 0;-->
+<!--        }-->
+
+<!--        input[type="file"] {-->
+<!--            width: 70%;-->
+<!--        }-->
+
+<!--        label {-->
+<!--            font-size: 16px;-->
+<!--        }-->
+
+<!--        button {-->
+<!--            background-color: #3498db;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            border-radius: 4px;-->
+<!--            padding: 10px 20px;-->
+<!--            cursor: pointer;-->
+<!--            font-size: 18px;-->
+<!--        }-->
+
+<!--        footer {-->
+<!--            background-color: #3498db;-->
+<!--            color: #fff;-->
+<!--            text-align: center;-->
+<!--            padding: 20px 0;-->
+<!--        }-->
+
+<!--        h3 {-->
+<!--            font-size: 24px;-->
+<!--        }-->
+
+<!--        .contributors {-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--        }-->
+
+<!--        .contributor {-->
+<!--            margin: 0 10px;-->
+<!--        }-->
+
+<!--        .contributor img {-->
+<!--            border-radius: 50%;-->
+<!--            width: 100px;-->
+<!--            height: 100px;-->
+<!--            object-fit: cover;-->
+<!--            border: 3px solid #fff;-->
+<!--        }-->
+
+<!--        .contributor p {-->
+<!--            font-size: 18px;-->
+<!--            margin: 10px 0;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <header>-->
+<!--        <h1>MeetMinder</h1>-->
+<!--        <p>Your Meeting Analysis Assistant</p>-->
+<!--    </header>-->
+
+<!--    <main>-->
+<!--        <section class="upload-section">-->
+<!--            <h2>Upload Your Meeting Video Now!</h2>-->
+<!--            <form action="/process" method="POST" enctype="multipart/form-data">-->
+<!--                <div class="input-container">-->
+<!--                    <input type="file" name="video" accept=".mp4, .avi">-->
+<!--                    <label for="num-speakers">Number of Speakers:</label>-->
+<!--                    <input type="number" name="num-speakers" id="num-speakers" min="1" max="10" required>-->
+<!--                </div>-->
+<!--                <button type="submit">Submit</button>-->
+<!--            </form>-->
+<!--        </section>-->
+<!--    </main>-->
+
+<!--    <footer>-->
+<!--        <h3>Contributors</h3>-->
+<!--        <div class="contributors">-->
+<!--            <div class="contributor">-->
+<!--                <img src="contributor1.jpg" alt="Contributor 1">-->
+<!--                <p>Aaryan Raghuvanshi</p>-->
+<!--            </div>-->
+<!--            <div class="contributor">-->
+<!--                <img src="contributor2.jpg" alt="Contributor 2">-->
+<!--                <p>Abhinav Rathi</p>-->
+<!--            </div>-->
+<!--            <div class="contributor">-->
+<!--                <img src="contributor3.jpg" alt="Contributor 3">-->
+<!--                <p>Shaarang Prabhudesai</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </footer>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeetMinder - Your Meeting Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, #3498db, #6dd5fa);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        header img#logo {
+            border-radius: 50%;
+        }
+
+        header img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 20px;
+            opacity: 0.8;
+        }
+
+        /* Main Sections */
+        main {
+            padding: 20px;
+        }
+
+        /* About Section */
+        .about-section {
+            background: linear-gradient(to right, #fff, #f9f9f9);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .about-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        /* Features Section */
+        .features-section {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            animation: slideIn 1s ease-out;
+        }
+
+        .features-section li {
+            margin: 15px 0;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-section li svg {
+            margin-right: 10px;
+        }
+
+        /* Upload Section */
+        .upload-section {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: zoomIn 1s ease-out;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            width: 70%;
+            margin-bottom: 10px;
+        }
+
+        button[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #6dd5fa;
+        }
+
+        /* Contributors Section */
+        .contributors {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .contributor {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .contributor img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 3px solid #fff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .contributor p {
+            font-size: 18px;
+            margin: 10px 0;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .contributor:hover img {
+            transform: scale(1.1);
+        }
+
+        .contributor:hover p {
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #3498db, #6dd5fa);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img id="logo" src="../static/logo.jpg" alt="MeetMinder Logo" width="150px">
+    <h1>MeetMinder</h1>
+    <p>Your Meeting Analysis Assistant</p>
+</header>
+
+<main>
+    <section class="about-section">
+        <h2>About MeetMinder</h2>
+        <p>MeetMinder is an innovative tool designed to simplify your meeting experience. It diarizes, transcribes, and summarizes recorded online meetings, saving your valuable time.</p>
+        <!-- Add any attractive animations or transitions to this section -->
+    </section>
+
+    <section class="features-section">
+        <h2>Key Features</h2>
+        <ul>
+            <li>Efficient summarization of meetings</li>
+            <li>Transcription of audio content</li>
+            <li>Identification of key discussion points</li>
+        </ul>
+        <!-- Add attractive animations or transitions to highlight key features -->
+    </section>
+
+    <section class="upload-section">
+        <h2>Get Started</h2>
+        <form action="/process" method="POST" enctype="multipart/form-data">
+            <div class="input-container">
+                <input type="file" name="video" accept=".mp4, .avi">
+                <label for="num-speakers">Number of Speakers:</label>
+                <input type="number" name="num-speakers" id="num-speakers" min="1" max="10" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <!-- Apply engaging animations or transitions for this section -->
+    </section>
+</main>
+
+<footer>
+    <h3>Contributors</h3>
+    <div class="contributors">
+        <div class="contributor" id="contributor1">
+            <img src="contributor1.jpg" alt="Contributor 1">
+            <p>Aaryan Raghuvanshi</p>
+            <!-- Add animations for when hovering over a contributor -->
+        </div>
+        <div class="contributor" id="contributor2">
+            <img src="contributor2.jpg" alt="Contributor 2">
+            <p>Abhinav Rathi</p>
+            <!-- Add animations for when hovering over a contributor -->
+        </div>
+        <div class="contributor" id="contributor3">
+            <img src="contributor3.jpg" alt="Contributor 3">
+            <p>Shaarang Prabudesai</p>
+            <!-- Add animations for when hovering over a contributor -->
+        </div>
+    </div>
+    <p>&copy; 2023 MeetMinder. All rights reserved.</p>
+    <!-- Add an authentic footer section -->
+</footer>
+</body>
+</html>
